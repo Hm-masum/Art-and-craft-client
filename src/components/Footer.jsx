@@ -16,7 +16,7 @@ const Footer = () => {
           </svg>
           <div className="font-bold">
             <h2 className="text-2xl">
-              Skylark<span className="text-accent">Builders</span>
+              Craft<span className="text-accent">Verse</span>
             </h2>
             <p>Providing reliable art and craft since 1992</p>
           </div>

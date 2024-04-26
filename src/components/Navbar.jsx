@@ -51,7 +51,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={`/`} className="text-2xl font-semibold">
-          Skylark<span className="text-accent">Builders</span>
+        Craft<span className="text-accent">Verse</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
