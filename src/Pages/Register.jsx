@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const {createUser}=useContext(AuthContext)
 
     const handleRegister = (e) => {
       e.preventDefault();
@@ -12,7 +15,17 @@ const Register = () => {
       const photo = form.photo.value;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(name,photo,email,password)
+    //console.log(name,photo,email,password)
+
+      // create user
+     createUser(email, password)
+     .then(() => {
+        toast.success('User created successfully')
+        // navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message.split("/")[1].split(")")[0])
+      });
     };
 
   return (
