@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {createUser}=useContext(AuthContext)
+    const {createUser,updateUserProfile}=useContext(AuthContext)
 
     const handleRegister = (e) => {
       e.preventDefault();
@@ -20,7 +20,9 @@ const Register = () => {
      createUser(email, password)
      .then(() => {
         toast.success('User created successfully')
-        // navigate("/");
+        updateUserProfile(name, photo).then(() => {
+          //  navigate("/");
+        });
       })
       .catch((error) => {
         toast.error(error.message.split("/")[1].split(")")[0])
