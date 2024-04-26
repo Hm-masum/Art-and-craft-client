@@ -1,16 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const {signIn}=useContext(AuthContext)
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password)
+
+    signIn(email,password)
+    .then((result) => {
+      toast.success('User login successfully')
+      // if (result.user) {
+      //   navigate(location?.state || "/");
+      // }
+    })
+    .catch((error) => {
+      toast.error(error.message.split("/")[1].split(")")[0])
+    });
   };
 
   // handle googleLogin
