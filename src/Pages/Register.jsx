@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const {createUser,updateUserProfile}=useContext(AuthContext)
+    const navigate=useNavigate()
 
     const handleRegister = (e) => {
       e.preventDefault();
@@ -21,7 +22,7 @@ const Register = () => {
      .then(() => {
         toast.success('User created successfully')
         updateUserProfile(name, photo).then(() => {
-          //  navigate("/");
+            navigate("/");
         });
       })
       .catch((error) => {

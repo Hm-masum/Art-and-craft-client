@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {signIn}=useContext(AuthContext)
+  const {signIn,googleLogin,githubLogin}=useContext(AuthContext)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,30 +19,30 @@ const Login = () => {
     signIn(email,password)
     .then((result) => {
       toast.success('User login successfully')
-      // if (result.user) {
-      //   navigate(location?.state || "/");
-      // }
+       if (result.user) {
+          navigate(location?.state || "/");
+       }
     })
     .catch((error) => {
       toast.error(error.message.split("/")[1].split(")")[0])
     });
   };
 
-  // handle googleLogin
-  // const handleGoogleSignIn = () => {
-  //   googleLogin().then(() => {
-  //     toast.success('User login successfully')
-  //     navigate(location?.state || "/");
-  //   });
-  // };
+  //handle googleLogin
+  const handleGoogleSignIn = () => {
+    googleLogin().then(() => {
+      toast.success('User login successfully')
+      navigate(location?.state || "/");
+    });
+  };
 
-  // handle githubSignIn
-  // const handleGithubSignIn = () => {
-  //   githubLogin().then(() => {
-  //     toast.success('User login successfully')
-  //     navigate(location?.state || "/");
-  //   });
-  // }
+  //handle githubSignIn
+  const handleGithubSignIn = () => {
+    githubLogin().then(() => {
+      toast.success('User login successfully')
+      navigate(location?.state || "/");
+    });
+  }
 
   return (
     <div className="bg-gray-100 rounded-xl p-4 md:p-10">
@@ -95,13 +97,13 @@ const Login = () => {
         <div className="divider">Continue With</div>
         <div className="flex justify-center gap-4">
           <button
-            // onClick={handleGoogleSignIn}
+            onClick={handleGoogleSignIn}
             className="btn btn-outline btn-accent"
           >
             Google{" "}
           </button>
           <button
-            // onClick={handleGithubSignIn}
+            onClick={handleGithubSignIn}
             className="btn btn-outline btn-secondary"
           >
             Github{" "}
