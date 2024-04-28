@@ -1,22 +1,38 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
-  const {user,logOut}=useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState(["light"]);
+
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("synthwave");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
+
   const navLinks = (
     <>
       <li>
         <NavLink to={`/`}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={`/artCraft`}>All Art & craft</NavLink>
+        <NavLink to={`/allCraft`}>All Art & craft</NavLink>
       </li>
       <li>
         <NavLink to={`/addCraft`}>Add craft</NavLink>
       </li>
       <li>
-        <NavLink to={`/MyArtCraft`}>My Art&Craft</NavLink>
+        <NavLink to={`/myCraft`}>My Art & Craft</NavLink>
       </li>
       <li>
         <NavLink to={`/login`}>Login</NavLink>
@@ -26,6 +42,7 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <div className="navbar p-0 bg-base-100">
       <div className="navbar-start">
@@ -54,38 +71,82 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={`/`} className="text-2xl font-semibold">
-        Craft<span className="text-accent">Verse</span>
+          Craft<span className="text-accent">Verse</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
-        {user ? (
-          <div className="flex items-center gap-2 md:gap-5">
-            <div className="tooltip tooltip-left" data-tip={user.displayName}>
-              <div className="avatar">
-                <div className="w-10 rounded-full">
-                  <img
-                    src={
-                      user?.photoURL ||
-                      "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                    }
-                  />
+      <div className="navbar-end flex gap-3">
+        <div>
+          <label className="cursor-pointer grid place-items-center">
+            <input
+              onChange={handleToggle}
+              type="checkbox"
+              className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
+            />
+            <svg
+              className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+            </svg>
+            <svg
+              className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </label>
+        </div>
+        <div>
+          {user ? (
+            <div className="flex items-center gap-2 md:gap-5">
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip={ user.displayName
+                  // <div className="flex">
+                  //   <p>{user.displayName}</p>
+                  //   <br />
+                  //   <button onClick={logOut}>SignOut</button>
+                  // </div>
+                }
+              >
+                <div className="avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      src={
+                        user?.photoURL ||
+                        "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-            <button onClick={logOut} className="btn btn-accent">
-              SignOut
-            </button>
-          </div>
-        )
-        :
-        (
-          <Link to={`/login`}>
-            <button className="btn btn-accent">Login</button>
-          </Link>
-        )} 
+          ) : (
+            <Link to={`/login`}>
+              <button className="btn btn-accent">Login</button>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

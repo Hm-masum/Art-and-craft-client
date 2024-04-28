@@ -31,11 +31,11 @@ const Register = () => {
     };
 
   return (
-    <div className="bg-gray-100 rounded-xl p-4 md:p-10">
+    <div className="border-2 rounded-xl p-4 md:p-10">
       <h2 className="text-3xl mb-8 text-center font-semibold">
         Please Register
       </h2>
-      <div className="animate__animated animate__fadeInRight md:w-3/4 lg:w-1/2 mx-auto bg-white rounded-xl p-4">
+      <div className="animate__animated animate__fadeInRight md:w-3/4 lg:w-1/2 mx-auto rounded-xl p-4">
         <form onSubmit={handleRegister}>
           <div className="form-control">
             <label className="label">
