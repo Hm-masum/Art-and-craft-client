@@ -4,7 +4,7 @@ const AddCraft = () => {
         e.preventDefault();
         const form = e.target;
         const user_name=form.user_name.value
-        const user_email=form.user_email.value
+        const email=form.user_email.value
         const item_name=form.item_name.value
         const subcategory=form.subcategory_name.value
         const rating=form.rating.value
@@ -14,7 +14,23 @@ const AddCraft = () => {
         const customization=form.customization.value
         const stockStatus=form.stockStatus.value
         const processing_time=form.processing_time.value
-        console.log(user_name,user_email,item_name,subcategory,rating,photo,price,description,customization,stockStatus,processing_time)
+        const info={user_name,email,item_name,subcategory,rating,photo,price,description,customization,stockStatus,processing_time}
+      
+
+        fetch("http://localhost:5000/craft",{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(info)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.insertedId){
+              alert('bro inserted hoise')
+            }
+        })
+
     }
 
   return (
