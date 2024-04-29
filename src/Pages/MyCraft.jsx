@@ -18,7 +18,11 @@ const MyCraft = () => {
         <div>
             {
                 item.map(p=>(
-                    <div key={p._id}><Link to={`/craftDetails/${p._id}`}>btn</Link></div>
+                    <div key={p._id}>
+                        <Link to={`/craftDetails/${p._id}`} className="btn">details</Link>
+                        <Link to={`/updateCraft/${p._id}`}  className="btn">Update</Link>
+                        <Link className="btn">delete</Link>
+                    </div>
                 ))
             }
         </div>

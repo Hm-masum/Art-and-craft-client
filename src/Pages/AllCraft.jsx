@@ -8,7 +8,7 @@ const AllCraft = () => {
 
 
   return (
-    <div className="lg:my-8">
+    <div className="my-4 lg:my-8">
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
@@ -28,7 +28,7 @@ const AllCraft = () => {
                 <td>{item.price}</td>
                 <td>{item.customization}</td>
                 <td>
-                  <Link>View Detals</Link>
+                  <Link to={`/craftDetails/${item._id}`}>View Details</Link>
                 </td>
               </tr>
             ))}

@@ -6,7 +6,8 @@ import Register from "../Pages/Register";
 import AllCraft from "../Pages/AllCraft";
 import AddCraft from "../Pages/AddCraft";
 import MyCraft from "../Pages/MyCraft";
-import CraftDetails from "../components/CraftDetails";
+import CraftDetails from "../Pages/CraftDetails";
+import UpdateCraft from "../Pages/UpdateCraft";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path:'/craftDetails/:id',
         element:<CraftDetails></CraftDetails>
+      },
+      {
+        path:'/updateCraft/:id',
+        element:<UpdateCraft></UpdateCraft>
       },
     ]
   },
