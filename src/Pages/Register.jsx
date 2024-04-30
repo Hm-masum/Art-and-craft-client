@@ -3,6 +3,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
+import { Typewriter } from "react-simple-typewriter";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +17,19 @@ const Register = () => {
       const photo = form.photo.value;
       const email = form.email.value;
       const password = form.password.value;
+
+      if (password.length < 6) {
+        toast.error("password should be 6 character")
+        return;
+      }
+      else if (!/[A-Z]/.test(password)) {
+        toast.error("Your password should have at least 1 Uppercase character")
+        return;
+      }
+      else if (!/[a-z]/.test(password)) {
+        toast.error("Your password should have at least 1 Lowercase character")
+        return;
+      }
   
     // create user
      createUser(email, password)
@@ -33,7 +47,17 @@ const Register = () => {
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
       <h2 className="text-3xl mb-8 text-center font-semibold">
-        Please Register
+       <span className="" style={{ fontWeight: "bold" }}>
+          <Typewriter
+            words={["Please Register"]}
+            loop={20}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
       </h2>
       <div className="animate__animated animate__fadeInRight md:w-3/4 lg:w-1/2 mx-auto rounded-xl p-4">
         <form onSubmit={handleRegister}>

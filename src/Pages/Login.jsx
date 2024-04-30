@@ -3,10 +3,11 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
+import { Typewriter } from "react-simple-typewriter";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {signIn,googleLogin,githubLogin}=useContext(AuthContext);
+  const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,22 +17,22 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signIn(email,password)
-    .then((result) => {
-      toast.success('User login successfully')
-       if (result.user) {
+    signIn(email, password)
+      .then((result) => {
+        toast.success("User login successfully");
+        if (result.user) {
           navigate(location?.state || "/");
-       }
-    })
-    .catch((error) => {
-      toast.error(error.message.split("/")[1].split(")")[0])
-    });
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message.split("/")[1].split(")")[0]);
+      });
   };
 
   //handle googleLogin
   const handleGoogleSignIn = () => {
     googleLogin().then(() => {
-      toast.success('User login successfully')
+      toast.success("User login successfully");
       navigate(location?.state || "/");
     });
   };
@@ -39,14 +40,26 @@ const Login = () => {
   //handle githubSignIn
   const handleGithubSignIn = () => {
     githubLogin().then(() => {
-      toast.success('User login successfully')
+      toast.success("User login successfully");
       navigate(location?.state || "/");
     });
-  }
+  };
 
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
-      <h2 className="text-3xl mb-8 text-center font-semibold">Please Login</h2>
+      <h2 className="text-3xl mb-8 text-center font-semibold">
+        <span className="" style={{ fontWeight: "bold" }}>
+          <Typewriter
+            words={["Please Login"]}
+            loop={20}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </h2>
       <div className="animate__animated animate__slideInLeft md:w-3/4 lg:w-1/2 mx-auto rounded-xl p-4">
         <form onSubmit={handleLogin}>
           <div className="form-control">

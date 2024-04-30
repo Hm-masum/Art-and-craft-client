@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -28,9 +29,11 @@ const Navbar = () => {
       <li>
         <NavLink to={`/allCraft`}>All Art & craft</NavLink>
       </li>
-      <li>
+      {
+        user && <li>
         <NavLink to={`/addCraft`}>Add craft</NavLink>
       </li>
+      }
       <li>
         <NavLink to={`/myCraft`}>My Art & Craft</NavLink>
       </li>
@@ -119,16 +122,7 @@ const Navbar = () => {
         <div>
           {user ? (
             <div className="flex items-center gap-2 md:gap-5">
-              <div
-                className="tooltip tooltip-bottom"
-                data-tip={ user.displayName
-                  // <div className="flex">
-                  //   <p>{user.displayName}</p>
-                  //   <br />
-                  //   <button onClick={logOut}>SignOut</button>
-                  // </div>
-                }
-              >
+              <a id="clickable">
                 <div className="avatar">
                   <div className="w-10 rounded-full">
                     <img
@@ -137,11 +131,13 @@ const Navbar = () => {
                         "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                       }
                     />
-                   
                   </div>
                 </div>
-                <button onClick={logOut}>SignOut</button>
-              </div>
+              </a>
+              <Tooltip className="z-10" anchorSelect="#clickable" clickable>
+                <h2 className="font-semibold">{user.displayName}</h2> <br />
+                <button className="btn w-full" onClick={logOut}>SignOut</button>
+              </Tooltip>
             </div>
           ) : (
             <Link to={`/login`}>

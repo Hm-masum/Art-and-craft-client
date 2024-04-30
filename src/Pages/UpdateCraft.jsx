@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
 
 const UpdateCraft = () => {
@@ -53,7 +54,18 @@ const UpdateCraft = () => {
 
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
-      <h2 className="text-3xl mb-8 text-center font-semibold">Update Craft</h2>
+      <h2 className="text-3xl mb-8 text-center font-semibold">
+        <span className="" style={{ fontWeight: "bold" }}>
+          <Typewriter
+            words={["Update Craft"]}
+            loop={20}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span></h2>
       <form onSubmit={handleUpdate}>
         <div className="md:flex gap-4 mb-4">
           <div className="form-control md:w-1/2">

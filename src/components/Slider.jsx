@@ -13,8 +13,7 @@ const Slider = () => {
             </h2>
             <br />
             <p className="text-white md:w-[55%] text-center mx-auto">
-              Find a variety of properties that suit you very easilty Forget all
-              difficulties in finding a residence for you Search
+              Discover Your Creative Haven: Explore Our Selection of Art & Craft Supplies. Find Everything You Need to Craft Your Next Masterpiece!
             </p>
           </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -36,8 +35,7 @@ const Slider = () => {
             </h2>
             <br />
             <p className="text-white md:w-[55%] text-center mx-auto">
-              Find a variety of properties that suit you very easilty Forget all
-              difficulties in finding a residence for you Search
+              Discover Your Creative Haven: Explore Our Selection of Art & Craft Supplies. Find Everything You Need to Craft Your Next Masterpiece!
             </p>
           </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -59,8 +57,7 @@ const Slider = () => {
             </h2>
             <br />
             <p className="text-white md:w-[55%] text-center mx-auto">
-              Find a variety of properties that suit you very easilty Forget all
-              difficulties in finding a residence for you Search
+              Discover Your Creative Haven: Explore Our Selection of Art & Craft Supplies. Find Everything You Need to Craft Your Next Masterpiece!
             </p>
           </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

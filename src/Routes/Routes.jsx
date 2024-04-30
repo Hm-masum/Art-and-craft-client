@@ -8,6 +8,7 @@ import AddCraft from "../Pages/AddCraft";
 import MyCraft from "../Pages/MyCraft";
 import CraftDetails from "../Pages/CraftDetails";
 import UpdateCraft from "../Pages/UpdateCraft";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -38,15 +39,15 @@ const router = createBrowserRouter([
       },
       {
         path:'/myCraft',
-        element:<MyCraft></MyCraft>
+        element:<PrivateRoute><MyCraft></MyCraft></PrivateRoute>
       },
       {
         path:'/craftDetails/:id',
-        element:<CraftDetails></CraftDetails>
+        element:<PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>
       },
       {
         path:'/updateCraft/:id',
-        element:<UpdateCraft></UpdateCraft>
+        element:<PrivateRoute><UpdateCraft></UpdateCraft></PrivateRoute>
       },
     ]
   },

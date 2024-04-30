@@ -1,3 +1,7 @@
+import toast from "react-hot-toast";
+import { Typewriter } from "react-simple-typewriter";
+import Swal from "sweetalert2";
+
 const AddCraft = () => {
 
     const handleAddCraft = e =>{
@@ -27,7 +31,12 @@ const AddCraft = () => {
         .then(res => res.json())
         .then(data =>{
             if(data.insertedId){
-              alert('bro inserted hoise')
+              Swal.fire({
+                title: "Success!",
+                text: "Craft Updated Successfully",
+                icon: "success",
+                confirmButtonText: "Cool",
+              });
             }
         })
 
@@ -35,7 +44,18 @@ const AddCraft = () => {
 
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
-      <h2 className="text-3xl mb-8 text-center font-semibold">Add art and craft</h2>
+      <h2 className="text-3xl mb-8 text-center font-semibold">
+       <span className="" style={{ fontWeight: "bold" }}>
+          <Typewriter
+            words={["Add art and craft"]}
+            loop={20}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span></h2>
       <form onSubmit={handleAddCraft}>
         <div className="md:flex gap-4 mb-4">
           <div className="form-control md:w-1/2">

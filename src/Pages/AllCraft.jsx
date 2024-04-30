@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const AllCraft = () => {
   const loadedCraft = useLoaderData();
@@ -8,7 +9,19 @@ const AllCraft = () => {
 
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
-      <h2 className="text-3xl mb-8 text-center font-semibold">All Art and Craft</h2>
+      <h2 className="text-3xl mb-8 text-center font-semibold">
+      <span className="" style={{ fontWeight: 'bold' }}>
+        <Typewriter
+          words={['All Art and Craft']}
+          loop={20}
+          cursor
+          cursorStyle='_'
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        />
+      </span>
+      </h2>
       <div className="my-4 lg:my-8">
         <div className="overflow-x-auto">
           <table className="table">
