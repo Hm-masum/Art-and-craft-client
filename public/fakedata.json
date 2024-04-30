@@ -1,0 +1,70 @@
+{
+    "products": [
+      {
+        "image": "https://example.com/image1.jpg",
+        "item_name": "Handmade Ceramic Mug",
+        "subcategory_name": "Pottery",
+        "description": "Indulge in your morning coffee ritual with this exquisitely crafted handmade ceramic mug. Each piece is a testament to artisanal mastery, formed with care and glazed to perfection. Its sturdy build ensures durability while its unique design adds a touch of elegance to your table setting.",
+        "price": 25.99,
+        "rating": 4.8,
+        "customization": "Yes",
+        "processing_time": "3-5 business days",
+        "stock_status": "In stock"
+      },
+      {
+        "image": "https://example.com/image2.jpg",
+        "item_name": "Watercolor Paint Set",
+        "subcategory_name": "Painting Supplies",
+        "description": "Unleash your creativity with this versatile watercolor paint set. Whether you're a seasoned artist or just starting out, the rich pigment and smooth texture of these paints will elevate your artwork. With a wide range of vibrant colors, you'll have endless possibilities to explore and experiment.",
+        "price": 39.99,
+        "rating": 4.6,
+        "customization": "No",
+        "processing_time": "1-2 business days",
+        "stock_status": "In stock"
+      },
+      {
+        "image": "https://example.com/image3.jpg",
+        "item_name": "Handwoven Basket",
+        "subcategory_name": "Weaving",
+        "description": "Add a touch of natural charm to your home with this handwoven basket. Crafted from sustainable materials by skilled artisans, each basket is unique in its design and adds warmth to any space. Whether used for storage or as a decorative accent, it's a stylish and eco-friendly choice.",
+        "price": 19.99,
+        "rating": 4.5,
+        "customization": "Yes",
+        "processing_time": "5-7 business days",
+        "stock_status": "In stock"
+      },
+      {
+        "image": "https://example.com/image4.jpg",
+        "item_name": "Embroidery Kit",
+        "subcategory_name": "Needlework",
+        "description": "Discover the art of embroidery with this comprehensive kit. Perfect for beginners and enthusiasts alike, it includes everything you need to create stunning designs. From colorful threads to high-quality needles and an embroidery hoop, you'll enjoy hours of stitching pleasure and the satisfaction of crafting something beautiful.",
+        "price": 29.99,
+        "rating": 4.7,
+        "customization": "No",
+        "processing_time": "2-4 business days",
+        "stock_status": "In stock"
+      },
+      {
+        "image": "https://example.com/image5.jpg",
+        "item_name": "Wood Carving Set",
+        "subcategory_name": "Woodworking",
+        "description": "Unleash your inner artist with this premium wood carving set. Crafted from high-quality materials, these tools are designed for precision and durability. Whether you're a seasoned woodworker or a novice, you'll appreciate the versatility and reliability of this set as you bring your creative visions to life.",
+        "price": 49.99,
+        "rating": 4.9,
+        "customization": "No",
+        "processing_time": "3-5 business days",
+        "stock_status": "In stock"
+      },
+      {
+        "image": "https://example.com/image6.jpg",
+        "item_name": "DIY Candle Making Kit",
+        "subcategory_name": "Candle Making",
+        "description": "Experience the joy of candle making with this easy-to-use DIY kit. Whether you're crafting candles for yourself or as gifts for loved ones, this kit has everything you need to get started. From premium wax and fragrance oils to wicks and containers, you'll enjoy creating custom candles that delight the senses.",
+        "price": 34.99,
+        "rating": 4.6,
+        "customization": "Yes",
+        "processing_time": "4-6 business days",
+        "stock_status": "In stock"
+      }
+    ]
+  }
