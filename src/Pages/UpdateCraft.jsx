@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateCraft = () => {
   const { id } = useParams();
@@ -27,6 +28,26 @@ const UpdateCraft = () => {
     const stockStatus=form.stockStatus.value
     const processing_time=form.processing_time.value
     const info={item_name,subcategory,rating,photo,price,description,customization,stockStatus,processing_time}
+
+    fetch(`http://localhost:5000/updateCraft/${id}`,{
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data)
+        if (data.modifiedCount>0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Craft Updated Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
   
   };
 
@@ -49,60 +70,6 @@ const UpdateCraft = () => {
           </div>
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Subcategory Name</span>
-            </label>
-            <input
-              type="text"
-              name="subcategory_name"
-              placeholder="subcategory_Name"
-              className="input input-bordered w-full"
-              defaultValue={craft?.subcategory}
-            />
-          </div>
-        </div>
-        <div className="md:flex gap-4 mb-4">
-          <div className="form-control md:w-1/2">
-            <label className="label">
-              <span className="label-text">Price</span>
-            </label>
-            <input
-              type="text"
-              name="price"
-              placeholder="price"
-              className="input input-bordered w-full"
-              defaultValue={craft?.price}
-            />
-          </div>
-          <div className="form-control md:w-1/2">
-            <label className="label">
-              <span className="label-text">Rating</span>
-            </label>
-            <input
-              type="text"
-              name="rating"
-              placeholder="rating"
-              className="input input-bordered w-full"
-              defaultValue={craft?.rating}
-            />
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Short Description</span>
-            </label>
-            <input
-              type="text"
-              name="description"
-              placeholder="short description"
-              defaultValue={craft?.description}
-              className="input input-bordered w-full"
-            />
-          </div>
-        </div>
-        <div className="md:flex gap-4 mb-4">
-          <div className="form-control md:w-1/3">
-            <label className="label">
               <span className="label-text">Processing Time</span>
             </label>
             <input
@@ -112,6 +79,40 @@ const UpdateCraft = () => {
               defaultValue={craft?.processing_time}
               className="input input-bordered w-full"
             />
+          </div>
+        </div>
+        <div className="md:flex gap-4 mb-4">
+          <div className="form-control md:w-1/3">
+            <label className="label">
+              <span className="label-text">Subcategory Name</span>
+            </label>
+            <select
+              name="subcategory_name"
+              id="subcategory_name"
+              className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
+              type="text"
+              defaultValue={craft?.subcategory}
+              placeholder="subcategory_name"
+            >
+              <option value="Landscape Painting" selected>
+                Landscape Painting
+              </option>
+              <option value="Portrait Drawing" selected>
+                 Portrait Drawing
+              </option>
+              <option value="Watercolour Painting" selected>
+                Watercolour Painting
+              </option>
+              <option value="Oil Painting" selected>
+                Oil Painting
+              </option>
+              <option value="Charcoal Sketching" selected>
+                Charcoal Sketching
+              </option>
+              <option value="Cartoon Drawing" selected>
+                Cartoon Drawing
+              </option>
+            </select>
           </div>
           <div className="form-control md:w-1/3">
             <label className="label">
@@ -157,6 +158,46 @@ const UpdateCraft = () => {
         <div className="mb-4">
           <div className="form-control">
             <label className="label">
+              <span className="label-text">Short Description</span>
+            </label>
+            <input
+              type="text"
+              name="description"
+              placeholder="short description"
+              defaultValue={craft?.description}
+              className="input input-bordered w-full"
+            />
+          </div>
+        </div>
+        <div className="md:flex gap-4 mb-4">
+          <div className="form-control md:w-1/2">
+            <label className="label">
+              <span className="label-text">Price</span>
+            </label>
+            <input
+              type="text"
+              name="price"
+              placeholder="price"
+              className="input input-bordered w-full"
+              defaultValue={craft?.price}
+            />
+          </div>
+          <div className="form-control md:w-1/2">
+            <label className="label">
+              <span className="label-text">Rating</span>
+            </label>
+            <input
+              type="text"
+              name="rating"
+              placeholder="rating"
+              className="input input-bordered w-full"
+              defaultValue={craft?.rating}
+            />
+          </div>
+        </div>
+        <div className="mb-4">
+          <div className="form-control">
+            <label className="label">
               <span className="label-text">Photo URL</span>
             </label>
             <input
@@ -170,7 +211,7 @@ const UpdateCraft = () => {
         </div>
         <input
           type="submit"
-          value="A"
+          value="Update Craft"
           className="btn text-white btn-block bg-black"
         />
       </form>
