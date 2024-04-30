@@ -1,4 +1,5 @@
-#CraftVerse
+#CraftVerse         
+
 *firebase         
 *react router dom         
 *TailwindCss          
@@ -7,6 +8,6 @@
 *React-hot-toast      
 *SweetAlert2
 
-****Mandatory pakage*****
+****Mandatory pakage****
 *RaectTooltip
 *React-symple-typewriter
