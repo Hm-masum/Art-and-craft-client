@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import toast from "react-hot-toast";
 import { Typewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -46,6 +47,11 @@ const Register = () => {
 
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
+
+      <Helmet>
+        <title>CraftVerse | Register</title>
+      </Helmet>   
+
       <h2 className="text-3xl mb-8 text-center font-semibold">
        <span className="" style={{ fontWeight: "bold" }}>
           <Typewriter

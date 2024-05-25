@@ -18,7 +18,7 @@ const CraftItem = ({ craft }) => {
   return (
     <div className="p-4 rounded-xl border-2 border-gray-100 space-y-3">
       <div className="flex justify-center items-center bg-gray-100 rounded-2xl p-4">
-        <img src={photo} className="h-[225px] rounded-lg" alt="" />
+        <img src={photo} className="h-[225px] w-full rounded-lg" alt="" />
       </div>
       <div className="space-y-3">
         <div className="flex gap-2"></div>

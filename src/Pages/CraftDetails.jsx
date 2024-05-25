@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { IoStar } from "react-icons/io5";
 import { useParams } from "react-router-dom";
 
@@ -31,6 +32,11 @@ const CraftDetails = () => {
 
   return (
     <div className="lg:flex justify-center items-center gap-8 my-4 lg:my-10">
+
+      <Helmet>
+        <title>CraftVerse | CraftDetails</title>
+      </Helmet>
+
       <div className="animate__animated animate__fadeInLeft flex justify-center items-center bg-gray-100 rounded-2xl lg:w-[50%]">
         <img className="rounded-2xl lg:h-[500px]" src={photo} alt="" />
       </div>

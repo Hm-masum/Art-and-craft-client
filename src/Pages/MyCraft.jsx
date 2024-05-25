@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { BiDollarCircle } from "react-icons/bi";
 import { IoStar } from "react-icons/io5";
+import { Typewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet-async";
 
 const MyCraft = () => {
   const { user } = useContext(AuthContext);
@@ -63,7 +65,26 @@ const MyCraft = () => {
   }
 
   return (
-    <div>
+    <div className="my-4 md:my-10">
+
+       <Helmet>
+        <title>CraftVerse | MyCraft</title>
+      </Helmet>
+
+      <h2 className="text-4xl text-center">
+        <span className="" style={{ fontWeight: "bold" }}>
+          <Typewriter
+            words={[`My Art & Craft`]}
+            loop={20}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </h2>
+
       {/* filter */}
       <div className="text-right">
          <details className="dropdown">
@@ -81,7 +102,7 @@ const MyCraft = () => {
          <div key={craft._id}>
             <div className="p-4 rounded-xl border-2 border-gray-100 space-y-3">
               <div className="flex justify-center items-center bg-gray-100 rounded-2xl p-4">
-                  <img src={craft.photo} className="h-[225px] rounded-lg" alt="" />
+                  <img src={craft.photo} className="h-[225px] w-full rounded-lg" alt="" />
               </div>
               <div className="space-y-3">
                 <h2 className="text-xl lg:text-2xl font-semibold">{craft.item_name}</h2>
@@ -96,13 +117,13 @@ const MyCraft = () => {
                 </div>
               </div>
               <div className="flex justify-between">
-                <Link to={`/craftDetails/${craft._id}`} className="btn btn-accent">
+                <Link to={`/craftDetails/${craft._id}`} className="btn btn-outline btn-accent">
                           Details
                 </Link>
-                <Link to={`/updateCraft/${craft._id}`} className="btn btn-secondary">
+                <Link to={`/updateCraft/${craft._id}`} className="btn btn-outline btn-primary">
                   Update
                 </Link>
-                 <button onClick={()=>handleDelete(craft._id)} className="btn btn-warning">Delete</button>
+                 <button onClick={()=>handleDelete(craft._id)} className="btn btn-outline btn-accent">Delete</button>
               </div>
             </div>
          </div>

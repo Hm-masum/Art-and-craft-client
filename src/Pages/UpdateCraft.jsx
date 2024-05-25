@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
@@ -19,28 +20,38 @@ const UpdateCraft = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
-    const item_name=form.item_name.value
-    const subcategory=form.subcategory_name.value
-    const rating=form.rating.value
-    const price=form.price.value
-    const description=form.description.value
-    const photo=form.photo.value
-    const customization=form.customization.value
-    const stockStatus=form.stockStatus.value
-    const processing_time=form.processing_time.value
-    const info={item_name,subcategory,rating,photo,price,description,customization,stockStatus,processing_time}
+    const item_name = form.item_name.value;
+    const subcategory = form.subcategory_name.value;
+    const rating = form.rating.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const photo = form.photo.value;
+    const customization = form.customization.value;
+    const stockStatus = form.stockStatus.value;
+    const processing_time = form.processing_time.value;
+    const info = {
+      item_name,
+      subcategory,
+      rating,
+      photo,
+      price,
+      description,
+      customization,
+      stockStatus,
+      processing_time,
+    };
 
-    fetch(`http://localhost:5000/updateCraft/${id}`,{
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(info),
+    fetch(`http://localhost:5000/updateCraft/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
     })
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data)
-        if (data.modifiedCount>0) {
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
             text: "Craft Updated Successfully",
@@ -49,11 +60,15 @@ const UpdateCraft = () => {
           });
         }
       });
-  
   };
 
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
+             
+      <Helmet>
+        <title>CraftVerse | UpdateCraft</title>
+      </Helmet>
+
       <h2 className="text-3xl mb-8 text-center font-semibold">
         <span className="" style={{ fontWeight: "bold" }}>
           <Typewriter
@@ -65,7 +80,8 @@ const UpdateCraft = () => {
             deleteSpeed={50}
             delaySpeed={1000}
           />
-        </span></h2>
+        </span>
+      </h2>
       <form onSubmit={handleUpdate}>
         <div className="md:flex gap-4 mb-4">
           <div className="form-control md:w-1/2">
@@ -110,7 +126,7 @@ const UpdateCraft = () => {
                 Landscape Painting
               </option>
               <option value="Portrait Drawing" selected>
-                 Portrait Drawing
+                Portrait Drawing
               </option>
               <option value="Watercolour Painting" selected>
                 Watercolour Painting

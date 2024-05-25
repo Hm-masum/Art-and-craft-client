@@ -30,13 +30,15 @@ const Navbar = () => {
         <NavLink to={`/allCraft`}>All Art & craft</NavLink>
       </li>
       {
-        user && <li>
-        <NavLink to={`/addCraft`}>Add craft</NavLink>
-      </li>
+        user && <>
+          <li>
+            <NavLink to={`/addCraft`}>Add craft</NavLink>
+         </li>
+          <li>
+            <NavLink to={`/myCraft`}>My Art & Craft</NavLink>
+         </li>
+        </>
       }
-      <li>
-        <NavLink to={`/myCraft`}>My Art & Craft</NavLink>
-      </li>
       <li>
         <NavLink to={`/login`}>Login</NavLink>
       </li>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
@@ -9,6 +10,11 @@ const AllCraft = () => {
 
   return (
     <div className="border-2 rounded-xl p-4 md:p-10">
+
+      <Helmet>
+        <title>CraftVerse | AllCraft</title>
+      </Helmet>
+
       <h2 className="text-3xl mb-8 text-center font-semibold">
       <span className="" style={{ fontWeight: 'bold' }}>
         <Typewriter

@@ -10,6 +10,7 @@ import CraftDetails from "../Pages/CraftDetails";
 import UpdateCraft from "../Pages/UpdateCraft";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
+import SubCategory from "../Pages/SubCategory";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,12 @@ const router = createBrowserRouter([
       },
       {
         path:'/addCraft',
-        element:<AddCraft></AddCraft>
+        element:<PrivateRoute><AddCraft></AddCraft></PrivateRoute>
+      },
+      {
+        path:'/subCategory/:subcategory',
+        element:<SubCategory></SubCategory>,
+        loader: ()=>fetch('http://localhost:5000/craft')
       },
       {
         path:'/myCraft',
