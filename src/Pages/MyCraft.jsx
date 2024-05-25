@@ -14,7 +14,7 @@ const MyCraft = () => {
   const [control,setControl]=useState(false)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/craft/${user?.email}`)
+    fetch(`https://craft-verse-server-omega.vercel.app/craft/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
@@ -34,7 +34,7 @@ const MyCraft = () => {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://craft-verse-server-omega.vercel.app/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

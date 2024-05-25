@@ -21,7 +21,7 @@ const AddCraft = () => {
         const info={user_name,email,item_name,subcategory,rating,photo,price,description,customization,stockStatus,processing_time}
       
 
-        fetch("http://localhost:5000/craft",{
+        fetch("https://craft-verse-server-omega.vercel.app/craft",{
             method:'POST',
             headers:{
                 'content-type':'application/json'

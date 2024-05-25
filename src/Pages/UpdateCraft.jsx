@@ -9,11 +9,11 @@ const UpdateCraft = () => {
   const [craft, setCraft] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleCraft/${id}`)
+    fetch(`https://craft-verse-server-omega.vercel.app/singleCraft/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCraft(data);
-        console.log(data);
+        //console.log(data);
       });
   }, [id]);
 
@@ -41,7 +41,7 @@ const UpdateCraft = () => {
       processing_time,
     };
 
-    fetch(`http://localhost:5000/updateCraft/${id}`, {
+    fetch(`https://craft-verse-server-omega.vercel.app/updateCraft/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -50,7 +50,7 @@ const UpdateCraft = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",

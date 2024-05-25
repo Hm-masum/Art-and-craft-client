@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-        loader: ()=>fetch('http://localhost:5000/craft')
+        loader: ()=>fetch('https://craft-verse-server-omega.vercel.app/craft')
       },
       {
         path:'/login',
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path:'/allCraft',
         element:<AllCraft></AllCraft>,
-        loader: ()=>fetch('http://localhost:5000/craft')
+        loader: ()=>fetch('https://craft-verse-server-omega.vercel.app/craft')
       },
       {
         path:'/addCraft',
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path:'/subCategory/:subcategory',
         element:<SubCategory></SubCategory>,
-        loader: ()=>fetch('http://localhost:5000/craft')
+        loader: ()=>fetch('https://craft-verse-server-omega.vercel.app/craft')
       },
       {
         path:'/myCraft',

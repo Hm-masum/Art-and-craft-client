@@ -8,11 +8,11 @@ const CraftDetails = () => {
   const [craft, setCraft] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleCraft/${id}`)
+    fetch(`https://craft-verse-server-omega.vercel.app/singleCraft/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCraft(data);
-        console.log(data);
+        //console.log(data);
       });
   }, [id]);
 
