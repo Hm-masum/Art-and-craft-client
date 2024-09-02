@@ -1,6 +1,6 @@
 # Art and Craft
 
-- Live Site: [Art-and-craft](https://sparkling-dolphin-403728.netlify.app/)
+- Live Site: [Art-and-craft](https://craft-verse-55d42.web.app/)
 
 ### Here is the most important key features is this app.
 
@@ -29,5 +29,34 @@
 - React-symple-typewriter
 - RaectTooltip   
 
+### Installation 
 
+1. Clone the repository:
+
+   ```bash
+    https://github.com/Hm-masum/Art-and-craft-client.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd Art-and-craft-client
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm i
+   ```
+
+4. Create a `.env.local` file in the root directory and add the following environment variables:
+
+   ```plaintext
+   VITE_APIKEY = <your-api-key>
+   VITE_AUTHDOMAIN = <your-auth-domain>
+   VITE_PROJECTID = <your-project-id>
+   VITE_STORAGEBUCKET = <your-storage-bucket>
+   VITE_MESSAGINGSENDERID = <your-sender-id>
+   VITE_APPID = <your-app-id>
+   ```
 
