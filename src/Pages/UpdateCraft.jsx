@@ -13,7 +13,6 @@ const UpdateCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         setCraft(data);
-        //console.log(data);
       });
   }, [id]);
 
@@ -50,7 +49,6 @@ const UpdateCraft = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",

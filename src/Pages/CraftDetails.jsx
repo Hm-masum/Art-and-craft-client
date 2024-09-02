@@ -12,7 +12,6 @@ const CraftDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setCraft(data);
-        //console.log(data);
       });
   }, [id]);
 
